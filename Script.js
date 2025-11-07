@@ -1,3 +1,11 @@
+  const btn = document.getElementById("mobile-menu-btn");
+    const menu = document.getElementById("mobile-menu");
+
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+
+
 document.getElementById("year").textContent = new Date().getFullYear();
 AOS.init({ once: false, duration: 900, easing: "ease-in-out" });
 new Typed("#typed-text", {
