@@ -49,16 +49,19 @@
 
   <header class="fixed top-0 w-full bg-black/50 backdrop-blur-sm z-50 border-b border-gray-800">
     <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+      <!-- Left: Logo and Name -->
       <div class="flex items-center gap-4">
         <div
           class="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center font-bold text-black">
-          BB</div>
+          BB
+        </div>
         <div>
           <h1 class="text-lg font-bold">Bright Babatunde</h1>
-          <p class="text-xs text-gray-400">Full‑Stack Developer</p>
+          <p class="text-xs text-gray-400">Full-Stack Developer</p>
         </div>
       </div>
 
+      <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
         <a class="nav-link" href="#home">Home</a>
         <a class="nav-link" href="#about">About</a>
@@ -67,14 +70,45 @@
         <a class="nav-link" href="#skills">Skills</a>
         <a class="nav-link" href="#contact">Contact</a>
         <a id="download-cv" href="hhh.pdf" download
-          class="ml-3 px-4 py-2 bg-yellow-400 text-black rounded-full font-semibold hover:shadow-lg">Download CV</a>
+          class="ml-3 px-4 py-2 bg-yellow-400 text-black rounded-full font-semibold hover:shadow-lg">
+          Download CV
+        </a>
       </nav>
 
       <div class="md:hidden flex items-center gap-3">
-        <button id="mobile-menu-btn" class="p-2 rounded-md bg-gray-800/60">Menu</button>
+        <a href="hhh.pdf" download
+          class="px-3 py-2 bg-yellow-400 text-black rounded-full text-sm font-semibold hover:shadow-lg transition">
+          CV
+        </a>
+        <button id="mobile-menu-btn" class="p-2 rounded-md bg-gray-800/60 text-white">Menu</button>
       </div>
     </div>
+
+  
+    <div id="mobile-menu"
+      class="hidden flex-col bg-black/80 backdrop-blur-sm md:hidden px-6 py-4 space-y-3 border-t border-gray-800">
+      <a class="block hover:text-yellow-400" href="#home">Home</a>
+      <a class="block hover:text-yellow-400" href="#about">About</a>
+      <a class="block hover:text-yellow-400" href="#projects">Projects</a>
+      <a class="block hover:text-yellow-400" href="#experience">Experience</a>
+      <a class="block hover:text-yellow-400" href="#skills">Skills</a>
+      <a class="block hover:text-yellow-400" href="#contact">Contact</a>
+      <a href="hhh.pdf" download
+        class="block text-center px-4 py-2 bg-yellow-400 text-black rounded-full font-semibold hover:shadow-lg transition">
+        Download CV
+      </a>
+    </div>
   </header>
+
+  <script>
+    const btn = document.getElementById("mobile-menu-btn");
+    const menu = document.getElementById("mobile-menu");
+
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  </script>
+
 
   <div id="mobile-menu"
     class="fixed inset-x-4 top-16 bg-gray-900/90 border border-gray-800 rounded-xl p-4 shadow-lg hidden z-40">
@@ -178,7 +212,8 @@
               <div class="absolute left-0 top-2 w-3 h-3 rounded-full bg-yellow-400"></div>
               <div class="text-sm font-semibold">SQI College of ICT, Digital Literacy Certificate</div>
               <div class="text-xs text-gray-400">2024</div>
-              <p class="mt-2 text-gray-300">Completed foundational training in computer skills, internet use, and digital communication.</p>
+              <p class="mt-2 text-gray-300">Completed foundational training in computer skills, internet use, and
+                digital communication.</p>
             </li>
           </ul>
         </div>
@@ -188,7 +223,7 @@
     <section id="projects" class="max-w-6xl mx-auto px-6 py-16" data-aos="fade-up">
       <h3 class="text-3xl font-semibold text-center text-yellow-400 mb-8">Featured Projects</h3>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         <!-- show only 3 projects on home -->
         <article
           class="project-card bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl overflow-hidden shadow-xl border border-gray-700 hover:scale-[1.02] transition cursor-pointer"
@@ -196,8 +231,8 @@
           data-img="https://source.unsplash.com/800x600/?portfolio,website"
           data-live="https://bri983.github.io/portfolio" data-repo="https://github.com/bri983/portfolio">
           <div class="relative h-40 sm:h-48">
-            <img loading="lazy" src="https://source.unsplash.com/800x600/?portfolio,website" class="w-full h-full object-cover"
-              alt="Portfolio project">
+            <img loading="lazy" src="https://source.unsplash.com/800x600/?portfolio,website"
+              class="w-full h-full object-cover" alt="Portfolio project">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
           </div>
           <div class="p-6">
@@ -217,7 +252,8 @@
           data-img="./Images/clac.png" data-live="https://bri983.github.io/Scientific-Calculator/"
           data-repo="https://github.com/bri983/scientific-calculator">
           <div class="relative h-40 sm:h-48">
-            <img loading="lazy" src="./Images/clac.png" class="w-full h-full object-cover" alt="Scientific calculator project">
+            <img loading="lazy" src="./Images/clac.png" class="w-full h-full object-cover"
+              alt="Scientific calculator project">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
           </div>
           <div class="p-6">
@@ -233,7 +269,8 @@
 
         <article
           class="project-card bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl overflow-hidden shadow-xl border border-gray-700 hover:scale-[1.02] transition cursor-pointer"
-          data-title="AI Essay Generator" data-desc="A project made with mainly javascript to test the knowledge of regex in passwords"
+          data-title="AI Essay Generator"
+          data-desc="A project made with mainly javascript to test the knowledge of regex in passwords"
           data-img="./Images/pass.png" data-live="https://bri983.github.io/Password-checker/"
           data-repo="https://github.com/bri983/Password-checker">
           <div class="relative h-40 sm:h-48">
@@ -243,7 +280,8 @@
           </div>
           <div class="p-6">
             <h4 class="font-bold text-lg">Password Checker </h4>
-            <p class="text-sm text-gray-400 mt-2">A project made with mainly javascript to test the knowledge of regex in passwords</p>
+            <p class="text-sm text-gray-400 mt-2">A project made with mainly javascript to test the knowledge of regex
+              in passwords</p>
             <div class="mt-4 flex gap-2">
               <span class="px-3 py-1 rounded-full bg-yellow-400 text-black text-xs">Demo</span>
               <span class="px-3 py-1 rounded-full bg-gray-800 text-xs">Node</span>
@@ -329,44 +367,44 @@
         </div>
 
         <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 shadow-xl">
-  <form id="contact-form" class="grid gap-4" action="https://formspree.io/f/xovpggpe" method="POST">
-    <input type="text" name="from_name" placeholder="Your name"
-      class="p-3 rounded bg-gray-900 text-gray-100 border border-gray-700" required>
-    <input type="email" name="reply_to" placeholder="Your email"
-      class="p-3 rounded bg-gray-900 text-gray-100 border border-gray-700" required>
-    <textarea name="message" rows="5" placeholder="Message"
-      class="p-3 rounded bg-gray-900 text-gray-100 border border-gray-700" required></textarea>
+          <form id="contact-form" class="grid gap-4" action="https://formspree.io/f/xovpggpe" method="POST">
+            <input type="text" name="from_name" placeholder="Your name"
+              class="p-3 rounded bg-gray-900 text-gray-100 border border-gray-700" required>
+            <input type="email" name="reply_to" placeholder="Your email"
+              class="p-3 rounded bg-gray-900 text-gray-100 border border-gray-700" required>
+            <textarea name="message" rows="5" placeholder="Message"
+              class="p-3 rounded bg-gray-900 text-gray-100 border border-gray-700" required></textarea>
 
-    <div class="flex items-center gap-3">
-      <button id="send-btn" type="submit"
-        class="px-5 py-3 bg-yellow-400 text-black rounded-full font-semibold">Send Message</button>
-      <div id="form-msg" class="text-sm text-gray-300"></div>
-    </div>
-  </form>
-</div>
+            <div class="flex items-center gap-3">
+              <button id="send-btn" type="submit"
+                class="px-5 py-3 bg-yellow-400 text-black rounded-full font-semibold">Send Message</button>
+              <div id="form-msg" class="text-sm text-gray-300"></div>
+            </div>
+          </form>
+        </div>
 
-<script>
-document.getElementById('contact-form').addEventListener('submit', async function(event) {
-  event.preventDefault(); // Stop normal form submission
+        <script>
+          document.getElementById('contact-form').addEventListener('submit', async function (event) {
+            event.preventDefault(); // Stop normal form submission
 
-  const form = event.target;
-  const formData = new FormData(form);
+            const form = event.target;
+            const formData = new FormData(form);
 
-  // Send form data to Formspree
-  const response = await fetch(form.action, {
-    method: form.method,
-    body: formData,
-    headers: { 'Accept': 'application/json' }
-  });
+            // Send form data to Formspree
+            const response = await fetch(form.action, {
+              method: form.method,
+              body: formData,
+              headers: { 'Accept': 'application/json' }
+            });
 
-  if (response.ok) {
-    // Redirect to your success page
-    window.location.href = 'Form.html';
-  } else {
-    document.getElementById('form-msg').textContent = 'Something went wrong. Please try again.';
-  }
-});
-</script>
+            if (response.ok) {
+              // Redirect to your success page
+              window.location.href = 'Form.html';
+            } else {
+              document.getElementById('form-msg').textContent = 'Something went wrong. Please try again.';
+            }
+          });
+        </script>
 
     </section>
 
@@ -380,7 +418,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     <div
       class="relative w-full max-w-3xl mx-auto bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden shadow-2xl border border-gray-700 max-h-[85vh] overflow-auto p-4 sm:p-6 z-50">
       <button id="modal-close" class="absolute top-4 right-4 p-2 rounded-full bg-gray-800">✕</button>
-  <img id="modal-img" loading="lazy" src="" alt="project" class="w-full h-52 sm:h-64 object-cover rounded-md" />
+      <img id="modal-img" loading="lazy" src="" alt="project" class="w-full h-52 sm:h-64 object-cover rounded-md" />
       <h4 id="modal-title" class="mt-4 text-2xl font-bold"></h4>
       <p id="modal-desc" class="mt-2 text-gray-300"></p>
       <div class="mt-4 flex gap-3">
@@ -394,4 +432,5 @@ document.getElementById('contact-form').addEventListener('submit', async functio
 
 </body>
 <Script src="Script.js"></Script>
+
 </html>
