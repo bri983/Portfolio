@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bright Babatunde — Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .glow {
+      box-shadow: 0 6px 30px rgba(245, 158, 11, 0.18);
+    }
+
+    .cursor-trail {
+      position: fixed;
+      pointer-events: none;
+      z-index: 60;
+      mix-blend-mode: screen
+    }
+
+    .trail-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 9999px;
+      background: radial-gradient(circle at 30% 30%, #f59e0b, #f97316);
+      opacity: 0.9;
+      transform: translate(-50%, -50%)
+    }
+
+    .modal-backdrop {
+      background: rgba(0, 0, 0, 0.6)
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-b from-[#05060a] via-gray-900 to-black text-gray-100 font-sans leading-relaxed">
+
+  <div id="tsparticles" class="fixed inset-0 -z-10"></div>
+  <div id="cursor-trail" class="cursor-trail"></div>
+
+  <header class="fixed top-0 w-full bg-black/50 backdrop-blur-sm z-50 border-b border-gray-800">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+      <div class="flex items-center gap-4">
+        <div
+          class="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center font-bold text-black">
+          BB</div>
+        <div>
+          <h1 class="text-lg font-bold">Bright Babatunde</h1>
+          <p class="text-xs text-gray-400">Full‑Stack Developer</p>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a class="nav-link" href="#home">Home</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#skills">Skills</a>
+        <a class="nav-link" href="#contact">Contact</a>
+        <a id="download-cv" href="/resume.pdf" download
+          class="ml-3 px-4 py-2 bg-yellow-400 text-black rounded-full font-semibold hover:shadow-lg">Download CV</a>
+      </nav>
+
+      <div class="md:hidden flex items-center gap-3">
+        <button id="mobile-menu-btn" class="p-2 rounded-md bg-gray-800/60">Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-menu"
+    class="fixed inset-x-4 top-16 bg-gray-900/90 border border-gray-800 rounded-xl p-4 shadow-lg hidden z-40">
+    <div class="flex flex-col gap-3">
+      <a href="#home" class="block">Home</a>
+      <a href="#about" class="block">About</a>
+      <a href="#projects" class="block">Projects</a>
+      <a href="#experience" class="block">Experience</a>
+      <a href="#skills" class="block">Skills</a>
+      <a href="#contact" class="block">Contact</a>
+    </div>
+  </div>
+
+  <main class="pt-28">
+    <section id="home"
+      class="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 pb-12 max-w-6xl mx-auto gap-12">
+      <div data-aos="fade-right" class="w-full md:w-1/2">
+        <p class="uppercase text-sm tracking-widest text-yellow-400">Hey — I’m</p>
+        <h1 class="mt-2 text-5xl md:text-6xl font-extrabold">Bright Babatunde</h1>
+        <h2 class="mt-2 text-2xl md:text-3xl">I am <span id="typed-text" class="text-yellow-400 font-semibold"></span>
+        </h2>
+        <p class="mt-6 text-gray-300 max-w-xl">I design and build performant, accessible web applications. I love clean
+          UX, elegant code and end-to-end product thinking. Currently open to freelance and full-time roles.</p>
+
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="#projects"
+            class="px-6 py-3 glow rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 text-black font-semibold hover:scale-[1.02] transition">See
+            my work</a>
+          <a href="#contact"
+            class="px-6 py-3 rounded-full border border-gray-700 text-gray-200 hover:bg-gray-800 transition">Let’s
+            talk</a>
+          <a href="https://github.com/bri983" target="_blank"
+            class="px-4 py-2 rounded-full border border-gray-700 text-sm">GitHub</a>
+          <a href="https://www.linkedin.com/in/israel-bright-babatunde-74490a336/" target="_blank"
+            class="px-4 py-2 rounded-full border border-gray-700 text-sm">LinkedIn</a>
+        </div>
+
+        <div class="mt-10 flex gap-6">
+          <div class="p-4 bg-gray-800 rounded-xl text-center shadow-md w-40" data-aos="zoom-in">
+            <div class="text-3xl font-bold text-yellow-400" data-count="30">0</div>
+            <div class="text-sm text-gray-400">Projects</div>
+          </div>
+          <div class="p-4 bg-gray-800 rounded-xl text-center shadow-md w-40" data-aos="zoom-in" data-aos-delay="100">
+            <div class="text-3xl font-bold text-yellow-400" data-count="1">0</div>
+            <div class="text-sm text-gray-400">Years Experience</div>
+          </div>
+          <div class="p-4 bg-gray-800 rounded-xl text-center shadow-md w-40" data-aos="zoom-in" data-aos-delay="200">
+            <div class="text-3xl font-bold text-yellow-400" data-count="40">0</div>
+            <div class="text-sm text-gray-400">Satisfied Clients</div>
+          </div>
+        </div>
+      </div>
+
+      <div data-aos="fade-left" class="w-full md:w-1/2 flex justify-center md:justify-end">
+        <div class="relative">
+          <div
+            class="w-80 h-90 rounded-3xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.6)] border-4 border-yellow-400 transform transition hover:scale-105">
+            <img src="hhh.png" alt="Bright" class=" h-full w-full object-fit" />
+          </div>
+          <div
+            class="absolute -bottom-6 left-6 bg-gray-900/70 p-4 rounded-xl backdrop-blur-sm border border-gray-700 mx-7">
+            <div class="text-sm text-gray-300">Currently</div>
+            <div class="font-semibold">Open to work • Remote</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="max-w-6xl mx-auto px-6 py-16 mt-6" data-aos="fade-up">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl shadow-2xl border border-gray-700">
+          <h3 class="text-2xl font-semibold text-yellow-400">About Me</h3>
+          <p class="mt-4 text-gray-300">I build scalable web apps and delightful user interfaces. From planning to
+            deployment, I care about performance, accessibility and maintainable code. I enjoy mentoring junior
+            developers and contributing to open-source.</p>
+
+          <div class="mt-6">
+            <h4 class="text-yellow-400 font-semibold">Tech stack</h4>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-full bg-gray-800 text-sm">React</span>
+              <span class="px-3 py-1 rounded-full bg-gray-800 text-sm">Next.js</span>
+              <!-- <span class="px-3 py-1 rounded-full bg-gray-800 text-sm">Tailwind</span> -->
+              <span class="px-3 py-1 rounded-full bg-gray-800 text-sm">Node.js</span>
+              <span class="px-3 py-1 rounded-full bg-gray-800 text-sm">Express</span>
+              <span class="px-3 py-1 rounded-full bg-gray-800 text-sm">MongoDB</span>
+              <span class="px-3 py-1 rounded-full bg-gray-800 text-sm">TypeScript</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl">
+          <h4 class="text-xl font-semibold text-yellow-400">Experience Timeline</h4>
+          <ul class="mt-6 space-y-6">
+            <li class="relative pl-8">
+              <div class="absolute left-0 top-2 w-3 h-3 rounded-full bg-yellow-400"></div>
+              <div class="text-sm font-semibold">Frontend Developer — Acme Co.</div>
+              <div class="text-xs text-gray-400">2022 — Present</div>
+              <p class="mt-2 text-gray-300">Built customer-facing dashboards and improved page performance by 40%.</p>
+            </li>
+            <li class="relative pl-8">
+              <div class="absolute left-0 top-2 w-3 h-3 rounded-full bg-yellow-400"></div>
+              <div class="text-sm font-semibold">Junior Developer — Beta Labs</div>
+              <div class="text-xs text-gray-400">2020 — 2022</div>
+              <p class="mt-2 text-gray-300">Worked across the stack on internal tools and APIs.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="max-w-6xl mx-auto px-6 py-16" data-aos="fade-up">
+      <h3 class="text-3xl font-semibold text-center text-yellow-400 mb-8">Featured Projects</h3>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <!-- show only 3 projects on home -->
+        <article
+          class="project-card bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl overflow-hidden shadow-xl border border-gray-700 hover:scale-[1.02] transition cursor-pointer"
+          data-title="Portfolio Website" data-desc="A sleek personal portfolio with animations and responsive design"
+          data-img="https://source.unsplash.com/800x600/?portfolio,website"
+          data-live="https://bri983.github.io/portfolio" data-repo="https://github.com/bri983/portfolio">
+          <div class="relative h-40 sm:h-48">
+            <img loading="lazy" src="https://source.unsplash.com/800x600/?portfolio,website"
+              class="w-full h-full object-cover" alt="Portfolio project">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+          </div>
+          <div class="p-6">
+            <h4 class="font-bold text-lg">Portfolio Website</h4>
+            <p class="text-sm text-gray-400 mt-2">Built with Tailwind CSS, AOS and performant images.</p>
+            <div class="mt-4 flex gap-2">
+              <span class="px-3 py-1 rounded-full bg-yellow-400 text-black text-xs">Live</span>
+              <span class="px-3 py-1 rounded-full bg-gray-800 text-xs">Tailwind</span>
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="project-card bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl overflow-hidden shadow-xl border border-gray-700 hover:scale-[1.02] transition cursor-pointer"
+          data-title="Scientific Calculator"
+          data-desc="A project made with the knowledge of HTML, CSS and javascript scientific calculator with advanced features."
+          data-img="./Images/clac.png" data-live="https://bri983.github.io/Scientific-Calculator/"
+          data-repo="https://github.com/bri983/scientific-calculator">
+          <div class="relative h-40 sm:h-48">
+            <img loading="lazy" src="./Images/clac.png" class="w-full h-full object-cover"
+              alt="Scientific calculator project">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+          </div>
+          <div class="p-6">
+            <h4 class="font-bold text-lg">Scientific calculator</h4>
+            <p class="text-sm text-gray-400 mt-2">A project made with the knowledge of HTML, CSS and javascript
+              scientific calculator with advanced features.</p>
+            <div class="mt-4 flex gap-2">
+              <span class="px-3 py-1 rounded-full bg-yellow-400 text-black text-xs">Repo</span>
+              <span class="px-3 py-1 rounded-full bg-gray-800 text-xs">React</span>
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="project-card bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl overflow-hidden shadow-xl border border-gray-700 hover:scale-[1.02] transition cursor-pointer"
+          data-title="AI Essay Generator"
+          data-desc="A project made with mainly javascript to test the knowledge of regex in passwords"
+          data-img="./Images/pass.png" data-live="https://bri983.github.io/Password-checker/"
+          data-repo="https://github.com/bri983/Password-checker">
+          <div class="relative h-40 sm:h-48">
+            <img loading="lazy" src="./Images/pass.png" class="w-full h-full object-cover"
+              alt="Password checker project">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+          </div>
+          <div class="p-6">
+            <h4 class="font-bold text-lg">Password Checker </h4>
+            <p class="text-sm text-gray-400 mt-2">A project made with mainly javascript to test the knowledge of regex
+              in passwords</p>
+            <div class="mt-4 flex gap-2">
+              <span class="px-3 py-1 rounded-full bg-yellow-400 text-black text-xs">Demo</span>
+              <span class="px-3 py-1 rounded-full bg-gray-800 text-xs">Node</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="flex justify-center mt-12">
+        <a href="project.html"
+          class="px-6 py-3 rounded-full bg-transparent border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition">See
+          all projects →</a>
+      </div>
+    </section>
+
+    <section id="experience" class="max-w-6xl mx-auto px-6 py-16" data-aos="fade-up">
+      <h3 class="text-3xl font-semibold text-center text-yellow-400 mb-8">Experience & Impact</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-xl border border-gray-700">
+          <h4 class="font-semibold text-xl">Product Impact</h4>
+          <p class="mt-2 text-gray-300">Improved product performance and user engagement through focused optimization
+            and design.</p>
+        </div>
+        <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-xl border border-gray-700">
+          <h4 class="font-semibold text-xl">Leadership</h4>
+          <p class="mt-2 text-gray-300">Mentored junior devs and led cross-functional projects to delivery.</p>
+        </div>
+        <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-xl border border-gray-700">
+          <h4 class="font-semibold text-xl">Open Source</h4>
+          <p class="mt-2 text-gray-300">Contributor to several community projects and libraries.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS: no percentages, just elegant tags -->
+    <section id="skills" class="max-w-6xl mx-auto px-6 py-16 bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl"
+      data-aos="fade-up">
+      <h3 class="text-3xl font-semibold text-center text-yellow-400 mb-8">Skills & Tools</h3>
+      <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-6 text-center">
+        <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-gray-700 shadow-lg">
+          <h4 class="font-semibold mb-4">Frontend</h4>
+          <div class="flex flex-wrap justify-center gap-3">
+            <span class="px-4 py-2 rounded-full bg-yellow-400 text-black">React</span>
+            <span class="px-4 py-2 rounded-full bg-gray-800">HTML</span>
+            <span class="px-4 py-2 rounded-full bg-gray-800">CSS</span>
+            <span class="px-4 py-2 rounded-full bg-gray-800">Tailwind</span>
+          </div>
+        </div>
+        <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-gray-700 shadow-lg">
+          <h4 class="font-semibold mb-4">Backend</h4>
+          <div class="flex flex-wrap justify-center gap-3">
+            <span class="px-4 py-2 rounded-full bg-yellow-400 text-black">Node.js</span>
+            <span class="px-4 py-2 rounded-full bg-gray-800">Express</span>
+            <span class="px-4 py-2 rounded-full bg-gray-800">MongoDB</span>
+            <span class="px-4 py-2 rounded-full bg-gray-800">REST APIs</span>
+          </div>
+        </div>
+        <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-gray-700 shadow-lg">
+          <h4 class="font-semibold mb-4">Tools & Practices</h4>
+          <div class="flex flex-wrap justify-center gap-3">
+            <span class="px-4 py-2 rounded-full bg-gray-800">Git</span>
+            <!-- <span class="px-4 py-2 rounded-full bg-gray-800">TypeScript</span> -->
+            <span class="px-4 py-2 rounded-full bg-gray-800">Testing</span>
+            <span class="px-4 py-2 rounded-full bg-gray-800">Accessibility</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="max-w-6xl mx-auto px-6 py-16" data-aos="fade-up">
+      <h3 class="text-3xl font-semibold text-center text-yellow-400 mb-6">Contact</h3>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 shadow-xl">
+          <h4 class="font-semibold">Get in touch</h4>
+          <p class="text-gray-300 mt-2">Prefer email? Send me a message and I'll reply quickly.</p>
+
+          <div class="mt-6 space-y-4 text-sm text-gray-300">
+            <div><strong>Email:</strong> <a href="mailto:Israelbrightbabatunde@gmail.com"
+                class="text-yellow-400">israelbrightbabatunde@gmail.com</a></div>
+            <div><strong>Location:</strong> Ogbomoso, Oyo state, Nigeria</div>
+            <div><strong>Availability:</strong> Open to work — Remote</div>
+          </div>
+        </div>
+
+        <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 shadow-xl">
+          <form id="contact-form" class="grid gap-4">
+            <input type="text" name="from_name" placeholder="Your name"
+              class="p-3 rounded bg-gray-900 text-gray-100 border border-gray-700" required>
+            <input type="email" name="reply_to" placeholder="Your email"
+              class="p-3 rounded bg-gray-900 text-gray-100 border border-gray-700" required>
+            <input type="text" name="subject" placeholder="Subject"
+              class="p-3 rounded bg-gray-900 text-gray-100 border border-gray-700">
+            <textarea name="message" rows="5" placeholder="Message"
+              class="p-3 rounded bg-gray-900 text-gray-100 border border-gray-700" required></textarea>
+            <div class="flex items-center gap-3">
+              <button id="send-btn" type="submit"
+                class="px-5 py-3 bg-yellow-400 text-black rounded-full font-semibold">Send Message</button>
+              <button id="send-loading"
+                class="px-5 py-3 bg-yellow-400 text-black rounded-full font-semibold hidden">Sending…</button>
+              <div id="form-msg" class="text-sm text-gray-300"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-8 text-center text-gray-400 border-t border-gray-800">
+      <p>© <span id="year"></span> Bright Babatunde — Built with care and code.</p>
+    </footer>
+  </main>
+
+  <div id="project-modal" class="fixed inset-0 hidden items-start sm:items-center justify-center z-50 p-4">
+    <div id="modal-backdrop" class="modal-backdrop absolute inset-0"></div>
+    <div
+      class="relative w-full max-w-3xl mx-auto bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden shadow-2xl border border-gray-700 max-h-[85vh] overflow-auto p-4 sm:p-6 z-50">
+      <button id="modal-close" class="absolute top-4 right-4 p-2 rounded-full bg-gray-800">✕</button>
+      <img id="modal-img" loading="lazy" src="" alt="project" class="w-full h-52 sm:h-64 object-cover rounded-md" />
+      <h4 id="modal-title" class="mt-4 text-2xl font-bold"></h4>
+      <p id="modal-desc" class="mt-2 text-gray-300"></p>
+      <div class="mt-4 flex gap-3">
+        <a id="modal-live" class="px-4 py-2 rounded-full bg-yellow-400 text-black" target="_blank"
+          rel="noopener noreferrer">Live</a>
+        <a id="modal-repo" class="px-4 py-2 rounded-full border border-gray-700" target="_blank"
+          rel="noopener noreferrer">Repo</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    AOS.init({ once: false, duration: 900, easing: 'ease-in-out' });
+    new Typed('#typed-text', { strings: ['a freelancer', 'a Web Developer', 'a Graphics Designer', 'a Creative Mind'], typeSpeed: 80, backSpeed: 40, loop: true });
+
+    tsParticles.load('tsparticles', { fullScreen: { enable: true }, particles: { number: { value: 60 }, color: { value: '#f59e0b' }, shape: { type: 'circle' }, opacity: { value: 0.12 }, size: { value: { min: 1, max: 4 } }, move: { enable: true, speed: 0.7, outModes: { default: 'out' } }, links: { enable: true, color: '#f59e0b', distance: 150, opacity: 0.06 } }, interactivity: { events: { onHover: { enable: true, mode: 'grab' }, onClick: { enable: true, mode: 'push' } }, modes: { grab: { distance: 140, links: { opacity: 0.12 } }, push: { quantity: 4 } } }, detectRetina: true });
+
+    (function () { const trail = document.getElementById('cursor-trail'); const dots = []; for (let i = 0; i < 8; i++) { const d = document.createElement('div'); d.className = 'trail-dot'; d.style.position = 'absolute'; d.style.left = '0px'; d.style.top = '0px'; d.style.opacity = String(1 - i * 0.12); trail.appendChild(d); dots.push(d); } let mouseX = 0, mouseY = 0; window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; }); function animate() { let x = mouseX, y = mouseY; dots.forEach((d, idx) => { setTimeout(() => { d.style.transform = `translate(${x}px, ${y}px)`; }, idx * 10); x += (mouseX - x) * (0.25 + idx * 0.02); y += (mouseY - y) * (0.25 + idx * 0.02); }); requestAnimationFrame(animate); } animate(); })();
+
+    const counters = document.querySelectorAll('[data-count]'); const counterObserver = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) { const el = entry.target; const target = +el.getAttribute('data-count'); let v = 0; const step = Math.ceil(target / 60); const iv = setInterval(() => { v += step; if (v >= target) { v = target; clearInterval(iv); } el.textContent = v; }, 20); counterObserver.unobserve(el); } }); }, { threshold: 0.4 }); counters.forEach(c => counterObserver.observe(c));
+
+    const projectCards = document.querySelectorAll('.project-card');
+    const modal = document.getElementById('project-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalLive = document.getElementById('modal-live');
+    const modalRepo = document.getElementById('modal-repo');
+
+    projectCards.forEach(card => {
+      card.addEventListener('click', () => {
+        modalImg.src = card.dataset.img || '';
+        modalTitle.textContent = card.dataset.title || '';
+        modalDesc.textContent = card.dataset.desc || '';
+
+        // Live link
+        if (card.dataset.live) {
+          modalLive.href = card.dataset.live;
+          modalLive.classList.remove('opacity-50', 'pointer-events-none');
+          modalLive.setAttribute('target', '_blank');
+          modalLive.setAttribute('rel', 'noopener noreferrer');
+        } else {
+          modalLive.href = '#';
+          modalLive.classList.add('opacity-50', 'pointer-events-none');
+          modalLive.removeAttribute('target');
+          modalLive.removeAttribute('rel');
+        }
+
+        // Repo link
+        if (card.dataset.repo) {
+          modalRepo.href = card.dataset.repo;
+          modalRepo.classList.remove('opacity-50', 'pointer-events-none');
+          modalRepo.setAttribute('target', '_blank');
+          modalRepo.setAttribute('rel', 'noopener noreferrer');
+        } else {
+          modalRepo.href = '#';
+          modalRepo.classList.add('opacity-50', 'pointer-events-none');
+          modalRepo.removeAttribute('target');
+          modalRepo.removeAttribute('rel');
+        }
+
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      });
+    });
+
+    function closeModal() {
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
+      // clear image to free memory
+      modalImg.src = '';
+      // restore body scroll if it was locked
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    const modalBackdropEl = document.getElementById('modal-backdrop');
+    if (modalBackdropEl) modalBackdropEl.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
+
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      if (isHidden) {
+        mobileMenu.classList.remove('hidden');
+        mobileBtn.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('overflow-hidden');
+      } else {
+        mobileMenu.classList.add('hidden');
+        mobileBtn.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('overflow-hidden');
+      }
+    });
+
+    // close mobile menu when any nav link inside it is clicked
+    const mobileNavLinks = mobileMenu.querySelectorAll('.nav-link');
+    mobileNavLinks.forEach(l => l.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      mobileBtn.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('overflow-hidden');
+    }));
+
+    const navLinks = document.querySelectorAll('.nav-link'); const sections = ['home', 'about', 'projects', 'experience', 'skills', 'contact'].map(id => document.getElementById(id)); const io = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) { navLinks.forEach(a => a.classList.remove('text-yellow-400')); const a = document.querySelector(`.nav-link[href="#${entry.target.id}"]`); if (a) a.classList.add('text-yellow-400'); } }); }, { threshold: 0.5 }); sections.forEach(s => { if (s) io.observe(s); });
+
+    (function () { emailjs.init('YOUR_EMAILJS_USER_ID'); const form = document.getElementById('contact-form'); const sendBtn = document.getElementById('send-btn'); const sendLoading = document.getElementById('send-loading'); const msgEl = document.getElementById('form-msg'); form.addEventListener('submit', function (e) { e.preventDefault(); sendBtn.classList.add('hidden'); sendLoading.classList.remove('hidden'); msgEl.textContent = ''; const formData = new FormData(form); const data = Object.fromEntries(formData.entries()); emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', data).then(() => { msgEl.textContent = 'Message sent — I will reply soon!'; form.reset(); }).catch(() => { msgEl.textContent = 'Oops — something went wrong. Try again later.'; }).finally(() => { sendBtn.classList.remove('hidden'); sendLoading.classList.add('hidden'); }); }); })();
+  </script>
+</body>
+
+</html>
