@@ -434,9 +434,7 @@
     function closeModal() {
       modal.classList.remove('flex');
       modal.classList.add('hidden');
-      // clear image to free memory
       modalImg.src = '';
-      // restore body scroll if it was locked
       document.body.classList.remove('overflow-hidden');
     }
 
@@ -460,7 +458,6 @@
       }
     });
 
-    // close mobile menu when any nav link inside it is clicked
     const mobileNavLinks = mobileMenu.querySelectorAll('.nav-link');
     mobileNavLinks.forEach(l => l.addEventListener('click', () => {
       mobileMenu.classList.add('hidden');
@@ -470,7 +467,53 @@
 
     const navLinks = document.querySelectorAll('.nav-link'); const sections = ['home', 'about', 'projects', 'experience', 'skills', 'contact'].map(id => document.getElementById(id)); const io = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) { navLinks.forEach(a => a.classList.remove('text-yellow-400')); const a = document.querySelector(`.nav-link[href="#${entry.target.id}"]`); if (a) a.classList.add('text-yellow-400'); } }); }, { threshold: 0.5 }); sections.forEach(s => { if (s) io.observe(s); });
 
-    (function () { emailjs.init('YOUR_EMAILJS_USER_ID'); const form = document.getElementById('contact-form'); const sendBtn = document.getElementById('send-btn'); const sendLoading = document.getElementById('send-loading'); const msgEl = document.getElementById('form-msg'); form.addEventListener('submit', function (e) { e.preventDefault(); sendBtn.classList.add('hidden'); sendLoading.classList.remove('hidden'); msgEl.textContent = ''; const formData = new FormData(form); const data = Object.fromEntries(formData.entries()); emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', data).then(() => { msgEl.textContent = 'Message sent — I will reply soon!'; form.reset(); }).catch(() => { msgEl.textContent = 'Oops — something went wrong. Try again later.'; }).finally(() => { sendBtn.classList.remove('hidden'); sendLoading.classList.add('hidden'); }); }); })();
+    (function () {
+      emailjs.init("Gz3yiik5YvKvG32Kg"); 
+
+      const form = document.getElementById('contact-form');
+      const sendBtn = document.getElementById('send-btn');
+      const sendLoading = document.getElementById('send-loading');
+      const msgEl = document.getElementById('form-msg');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        sendBtn.classList.add('hidden');
+        sendLoading.classList.remove('hidden');
+        msgEl.textContent = '';
+
+        const formData = new FormData(form);
+        const templateParams = {
+          from_name: formData.get('from_name'),
+          reply_to: formData.get('reply_to'),
+          subject: formData.get('subject'),
+          message: formData.get('message'),
+          to_name: 'Bright' 
+        };
+
+        emailjs.send(
+          'service_0tq0xw7', 
+          'template_mv5h15v', 
+          templateParams
+        )
+          .then(() => {
+            msgEl.textContent = 'Message sent successfully! I will reply soon.';
+            msgEl.classList.remove('text-red-500');
+            msgEl.classList.add('text-green-400');
+            form.reset();
+          })
+          .catch((error) => {
+            console.error('Email sending failed:', error);
+            msgEl.textContent = 'Failed to send message. Please try again.';
+            msgEl.classList.remove('text-green-400');
+            msgEl.classList.add('text-red-500');
+          })
+          .finally(() => {
+            sendBtn.classList.remove('hidden');
+            sendLoading.classList.add('hidden');
+          });
+      });
+    })();
   </script>
 </body>
 
